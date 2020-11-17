@@ -56,3 +56,16 @@
 (pascal-triangle-elem 5 4)
 (pascal-triangle-elem 5 5)
 
+;; 1.16
+
+(define (fast-exp b n)
+  (define (fast-exp-iter b n a)
+    (cond
+      ((= n 0) a)
+      ((even? n) (fast-exp-iter (* b b) (/ n 2) a))
+      (else (fast-exp-iter b (- n 1) (* a b)))))
+  (fast-exp-iter b n 1))
+
+(fast-exp 2 10)
+(fast-exp 3 5)
+
