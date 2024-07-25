@@ -20,22 +20,22 @@
 
 (define (count-amount-change amount)
   (define (cc amount kind)
-	(cond
-	  ((= amount 0) 1)
-	  ((< amount 0) 0)
-	  ((= kind 0) 0)
-	  (else (+ (cc amount (- kind 1))
-			   (cc (- amount (coins kind)) kind)))))
+    (cond
+      ((= amount 0) 1)
+      ((< amount 0) 0)
+      ((= kind 0) 0)
+      (else (+ (cc amount (- kind 1))
+               (cc (- amount (coins kind)) kind)))))
 
   (cc amount 5))
 
 (define (coins kind)
   (cond
-	((= kind 1) 1)
-	((= kind 2) 5)
-	((= kind 3) 10)
-	((= kind 4) 25)
-	((= kind 5) 50)))
+    ((= kind 1) 1)
+    ((= kind 2) 5)
+    ((= kind 3) 10)
+    ((= kind 4) 25)
+    ((= kind 5) 50)))
 
 (count-amount-change 100)
 (count-amount-change 6)
