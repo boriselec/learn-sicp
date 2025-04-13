@@ -1,5 +1,27 @@
 (module learn-sicp sicp)
 
+(define (fact n)
+  (if (= n 1)
+    1
+      (*
+        n
+        (fact (- n 1)))))
+
+(fact 1)
+(fact 50000)
+
+(define (fact2 n)
+  (define (fact-iter n counter)
+    (if (= counter 1)
+        n
+        (fact-iter
+          (* n counter)
+          (- counter 1))))
+  (fact-iter 1 n))
+
+(fact2 1)
+(fact2 50000)
+
 (define (fib n)
   (cond 
     ((= n 0) 0)
@@ -94,4 +116,22 @@
 
 (fast-exp 2 10)
 (fast-exp 3 5)
+
+;; 1.17
+
+(define (double x)
+  (+ x x))
+
+(define (halve x)
+  (cond 
+    ((even? x) (/ x 2))
+    (else not-even)))
+
+(define (fast-mult a b)
+  (cond
+    ((= a 1) b)
+    ((even? a) (double (fast-mult (halve a) b)))
+    (else (+ a (fast-mult (- a 1) b)))))
+
+(fast-mult 9 8)
 
