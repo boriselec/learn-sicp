@@ -1,4 +1,4 @@
-(module learn-sicp sicp)
+#lang sicp
 
 (define (fact n)
   (if (= n 1)
@@ -23,7 +23,7 @@
 (fact2 50000)
 
 (define (fib n)
-  (cond 
+  (cond
     ((= n 0) 0)
     ((= n 1) 1)
     (else (+ (fib (- n 1)) (fib (- n 2))))))
@@ -123,7 +123,7 @@
   (+ x x))
 
 (define (halve x)
-  (cond 
+  (cond
     ((even? x) (/ x 2))
     (else not-even)))
 

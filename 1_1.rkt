@@ -1,4 +1,4 @@
-(module learn-sicp sicp)
+#lang sicp
 
 ;; 1.1
 10

@@ -1,3 +1,5 @@
+#lang sicp
+
 (define (inc x) (+ x 1))
 (define (sum term a next b)
   (if (> a b)
