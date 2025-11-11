@@ -5,7 +5,7 @@
     (cond
       ((= m 0) x)
       ((= m 1) y)
-      (else (error "unexpected arg: not 0 nor 1"))))
+      (else (error "Unexpected argument: must be 0 or 1."))))
   dispatch)
 
 (define (car z) (z 0))
