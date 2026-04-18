@@ -1,5 +1,41 @@
 #lang sicp
 
+;; 2.1
+(define (gcd a b)
+  (if (= b 0)
+      a
+      (gcd b (remainder a b))))
+
+(define (numer x) (car x))
+(define (denom x) (cdr x))
+
+(define (print-rat x)
+  (display (numer x))
+  (display "/")
+  (display (denom x))
+  (newline))
+
+(define (make-rat n d)
+  (let ((gcd-val (gcd (abs n) (abs d)))
+        (is-positive (equal? (> 0 n) (> 0 d))))
+    (cons
+      ((if is-positive + -)
+       (/ (abs n) gcd-val))
+      (/ (abs d) gcd-val))))
+
+(define a (make-rat 1 3))
+(define b1 (make-rat 4 6))
+(define b (make-rat -4 6))
+(define c (make-rat 3 -9))
+(define d (make-rat -9 -12))
+
+(print-rat a)
+(print-rat b1)
+(print-rat b)
+(print-rat c)
+(print-rat d)
+
+;;
 (define (cons x y)
   (define (dispatch m)
     (cond
